@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MostrarProdutosActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="6dp">
+
+        <TextView
+            android:id="@+id/TextviewID"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Cód : 1"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/TextviewFornecedor"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Fornecedor : João "
+            android:textSize="20sp" />
+    </LinearLayout>
+    <view
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/TextviewTipo"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Tipo : Fruta "
+        android:textSize="19sp" />
+    <ImageView
+        android:id="@+id/imgProduto"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:src="@drawable/banana"
+        android:layout_margin="6dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/TextviewProduto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 4,90"
+        android:textSize="35sp"
+        android:layout_gravity="center"/>
+
+    <view
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/TextviewNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Banana Prata"
+        android:textSize="30sp"
+        android:textColor="#4CAF50"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/TextviewQuantidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="600g - 800g"
+        android:textSize="20sp"
+        android:textColor="#000400"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/TextviewDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A Banana é a fruta mais consumida em todo o mundo!..."
+        android:textSize="18sp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal"/>
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:numStars="5"
+        android:stepSize="1"/>
+
+</LinearLayout>

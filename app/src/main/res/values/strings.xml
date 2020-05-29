@@ -1,3 +1,13 @@
 <resources>
+    <array name="tipo">
+        <item>Frutas</item>
+        <item>Legumes</item>
+        <item>Verduras</item>
+        <item>Cogumelos</item>
+        <item>Temperos</item>
+
+    </array>
+
     <string name="app_name">AppAgricultura</string>
+
 </resources>
