@@ -24,6 +24,10 @@ public class Produto {
         this.preco = preco;
         this.rating = rating;
     }
+
+    public Produto(String nome, String fornecedor, String quantidade, int rating) {
+    }
+
     public int getId() {
         return id;
     }
@@ -33,10 +37,12 @@ public class Produto {
     }
 
     public String getFornecedor() {
+
         return fornecedor;
     }
 
     public String getTipo() {
+
         return tipo;
     }
     public String getDescricao() {
