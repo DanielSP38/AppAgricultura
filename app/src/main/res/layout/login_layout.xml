@@ -35,6 +35,7 @@
             android:textSize="40sp" />
 
         <EditText
+            android:id="@+id/loginEmail"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -46,6 +47,7 @@
             android:padding="10dp" />
 
         <EditText
+            android:id="@+id/loginSenha"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -62,9 +64,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="40dp"
-            android:layout_gravity="center_horizontal"
-            >
+            android:layout_gravity="center_horizontal">
             <Button
+                android:id="@+id/btnEntrar"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
                 android:text="Entrar"/>
@@ -76,10 +78,21 @@
                 android:textSize="20sp"
                 android:textColor="#fff"/>
             <Button
-            android:layout_width="145dp"
-            android:layout_height="55dp"
+                android:id="@+id/btnCadastro"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
                 android:text="Cadastrar"/>
+
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSair"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Sair"/>
 
     </LinearLayout>
 

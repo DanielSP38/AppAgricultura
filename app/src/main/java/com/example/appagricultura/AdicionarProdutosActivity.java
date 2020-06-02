@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -283,14 +284,22 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
             View listViewItem = inflater.inflate(R.layout.listaprodutos_layout, null, true);
 
-            TextView textViewNome = listViewItem.findViewById(R.id.textViewNome);
+            TextView txtNome = listViewItem.findViewById(R.id.txtNome);
 
             TextView textViewUpdate = listViewItem.findViewById(R.id.textViewUpdate);
             TextView textViewDelete = listViewItem.findViewById(R.id.textViewDelete);
 
             final Produto produto = produtoList.get(position);
 
-            textViewNome.setText(produto.getNome());
+            txtNome.setText(produto.getNome());
+
+            txtNome.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getApplicationContext(),
+                            MostrarProdutosActivity.class));
+                }
+            });
 
             textViewUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override

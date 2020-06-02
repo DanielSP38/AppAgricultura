@@ -2,129 +2,142 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:background="@drawable/campo">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <EditText
-            android:id="@+id/editTextId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-
-        <EditText
-            android:id="@+id/editTextNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:hint="Nome" />
+        android:layout_width="500dp"
+        android:layout_height="600dp"
+        android:background="#729BA109"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
 
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
+            <EditText
+                android:id="@+id/editTextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
 
 
             <EditText
-                android:id="@+id/editTextFornecedor"
-                android:layout_width="200dp"
+                android:background="@drawable/borda"
+                android:backgroundTint="#fff"
+                android:padding="5dp"
+                android:id="@+id/editTextNome"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Fornecedor" />
+                android:hint="Nome" />
 
-            <EditText
-                android:id="@+id/editTextQuantidade"
-                android:layout_width="200dp"
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Quantidade/Peso" />
+                android:orientation="horizontal"
+                android:layout_gravity="center">
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
 
+                <EditText
+                    android:background="@drawable/borda"
+                    android:backgroundTint="#fff"
+                    android:padding="5dp"
+                    android:id="@+id/editTextFornecedor"
+                    android:layout_width="155dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Fornecedor" />
+
+                <EditText
+                    android:background="@drawable/borda"
+                    android:backgroundTint="#fff"
+                    android:padding="5dp"
+                    android:id="@+id/editTextQuantidade"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Qtd/Peso" />
+
+            </LinearLayout>
             <EditText
+                android:background="@drawable/borda"
+                android:backgroundTint="#fff"
+                android:padding="5dp"
                 android:id="@+id/editTextPreco"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:hint="Preço" />
 
+
+
+
+            <Spinner
+                android:background="@drawable/borda"
+                android:backgroundTint="#fff"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinTipo"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:entries="@array/tipo"/>
+
             <EditText
-                android:id="@+id/editTextEstoque"
-                android:layout_width="200dp"
+                android:background="@drawable/borda"
+                android:backgroundTint="#fff"
+                android:padding="5dp"
+                android:id="@+id/editTextDescricao"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Estoque" />
+                android:hint="Descrição" />
+             <RatingBar
+                 android:id="@+id/rating"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:numStars="5"
+                 android:stepSize="1"/>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="Adicionar"
+                android:textAllCaps="false"
+                android:id="@+id/buttonAdd"/>
+            <ListView
+                android:id="@+id/listProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/linearLayout"/>
+
         </LinearLayout>
 
-        <Spinner
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/spinTipo"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:entries="@array/tipo"/>
-
-        <EditText
-            android:id="@+id/editTextDescricao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:hint="Descrição" />
-         <RatingBar
-             android:id="@+id/rating"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center_horizontal"
-             android:numStars="5"
-             android:stepSize="1"/>
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            android:text="Adicionar"
-            android:textAllCaps="false"
-            android:id="@+id/buttonAdd"/>
-        <ListView
-            android:id="@+id/listProdutos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/linearLayout"/>
+            android:id="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
 
     </LinearLayout>
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:visibility="gone"/>
 </RelativeLayout>

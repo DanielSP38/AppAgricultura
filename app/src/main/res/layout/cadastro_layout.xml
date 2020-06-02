@@ -14,7 +14,8 @@
         android:layout_width="350dp"
         android:layout_height="520dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="60dp"
+        android:layout_margin="60dp"
+
         android:background="#B12E8B57"
         android:orientation="vertical">
 
@@ -36,6 +37,7 @@
             android:textSize="40sp" />
 
         <EditText
+            android:id="@+id/cadNome"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -43,10 +45,11 @@
             android:background="@drawable/borda"
             android:backgroundTint="#fff"
             android:hint="nome"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:padding="10dp" />
 
         <EditText
+            android:id="@+id/cadEmail"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -54,10 +57,11 @@
             android:background="@drawable/borda"
             android:backgroundTint="#fff"
             android:hint="email"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:padding="10dp" />
 
         <EditText
+            android:id="@+id/cadSenha"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
@@ -78,9 +82,18 @@
             >
 
             <Button
+                android:id="@+id/btnCadastrar"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
                 android:text="Cadastrar"/>
+            <Button
+                android:id="@+id/btnVoltar"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:text="Voltar"/>
+
+
+
 
 
         </LinearLayout>
