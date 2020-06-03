@@ -4,7 +4,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -42,8 +41,9 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
     ProgressBar progressBar;
     ListView listView;
     Button buttonAdd;
+    Button btnExit;
 
-    List<Produto>produtoList;
+    List<Produto> produtoList;
 
     boolean isUpdating = false;
 
@@ -62,9 +62,18 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         spinTipo = (Spinner) findViewById(R.id.spinTipo);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         buttonAdd = (Button) findViewById(R.id.buttonAdd);
+        btnExit = (Button) findViewById(R.id.btnExit);
         listView = (ListView) findViewById(R.id.listProdutos);
 
         produtoList = new ArrayList<>();
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+                System.exit(0);
+            }
+        });
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override

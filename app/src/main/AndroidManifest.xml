@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ListaProdutosActivity">
-
-        </activity>
         <activity android:name=".MostrarProdutosActivity" />
         <activity android:name=".AdicionarProdutosActivity" />
         <activity android:name=".CadastroActivity" />
