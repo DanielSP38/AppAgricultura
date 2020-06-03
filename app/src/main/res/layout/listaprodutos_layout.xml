@@ -4,17 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     tools:context=".ListaProdutosActivity">
-
-    <TextView
-        android:id="@+id/txtNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_weight="8"
-        android:text="Banana Prata"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
     <TextView
         android:id="@+id/textViewUpdate"
@@ -27,6 +17,15 @@
         android:text="Alterar"
         android:textColor="#498C1A"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_weight="8"
+        android:text="Banana Prata"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
     <TextView
         android:id="@+id/textViewDelete"

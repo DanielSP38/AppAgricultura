@@ -83,9 +83,9 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
     private void createProduto() {
         String nome = editTextNome.getText().toString().trim();
         String fornecedor = editTextFornecedor.getText().toString().trim();
-        String quantidade = editTextNome.getText().toString().trim();
+        String quantidade = editTextQuantidade.getText().toString().trim();
         String descricao = editTextDescricao.getText().toString().trim();
-        String preco = editTextFornecedor.getText().toString().trim();
+        String preco = editTextPreco.getText().toString().trim();
          int  ratingBar = (int) rating.getRating();
         String tipo = spinTipo.getSelectedItem().toString();
 
@@ -95,23 +95,23 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
             return;
         }
         if (TextUtils.isEmpty(fornecedor)) {
-            editTextNome.setError("Por favor insira o nome do Fornecedor");
-            editTextNome.requestFocus();
+            editTextFornecedor.setError("Por favor insira o nome do Fornecedor");
+            editTextFornecedor.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(quantidade)) {
-            editTextNome.setError("Por favor insira a quantidade/peso do Produto");
-            editTextNome.requestFocus();
+            editTextQuantidade.setError("Por favor insira a quantidade/peso do Produto");
+            editTextQuantidade.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(descricao)) {
-            editTextNome.setError("Por favor insira a descrição do Produto");
-            editTextNome.requestFocus();
+            editTextDescricao.setError("Por favor insira a descrição do Produto");
+            editTextDescricao.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(preco)) {
-            editTextNome.setError("Por favor insira o valor do Produto");
-            editTextNome.requestFocus();
+            editTextPreco.setError("Por favor insira o valor do Produto");
+            editTextPreco.requestFocus();
             return;
         }
 
@@ -124,13 +124,13 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         params.put("preco", preco);
         params.put("rating", String.valueOf(ratingBar));
 
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_PRODUTOS, params, CODE_POST_REQUEST);
+        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_PRODUTO, params, CODE_POST_REQUEST);
         request.execute();
 
 
     }
     private void readProduto() {
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_READ_PRODUTOS, null,CODE_GET_REQUEST);
+        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_READ_PRODUTO, null,CODE_GET_REQUEST);
         request.execute();
     }
 
@@ -151,23 +151,23 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
             return;
         }
         if (TextUtils.isEmpty(fornecedor)) {
-            editTextNome.setError("Por favor insira o nome do Fornecedor");
-            editTextNome.requestFocus();
+            editTextFornecedor.setError("Por favor insira o nome do Fornecedor");
+            editTextFornecedor.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(quantidade)) {
-            editTextNome.setError("Por favor insira a quantidade/peso do Produto");
-            editTextNome.requestFocus();
+            editTextQuantidade.setError("Por favor insira a quantidade/peso do Produto");
+            editTextQuantidade.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(descricao)) {
-            editTextNome.setError("Por favor insira a descrição do Produto");
-            editTextNome.requestFocus();
+            editTextDescricao.setError("Por favor insira a descrição do Produto");
+            editTextDescricao.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(preco)) {
-            editTextNome.setError("Por favor insira o valor do Produto");
-            editTextNome.requestFocus();
+            editTextPreco.setError("Por favor insira o valor do Produto");
+            editTextPreco.requestFocus();
             return;
         }
         HashMap<String, String> params =  new HashMap<>();
@@ -180,7 +180,7 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         params.put("preco", preco);
         params.put("rating", String.valueOf(ratingBar));
 
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_UPDATE_PRODUTOS, params, CODE_POST_REQUEST);
+        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_UPDATE_PRODUTO, params, CODE_POST_REQUEST);
         request.execute();
 
         buttonAdd.setText("Adicionar");
@@ -196,15 +196,15 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
     }
 
     private void deleteProduto(int id) {
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_DELETE_PRODUTOS + id, null, CODE_GET_REQUEST);
+        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_DELETE_PRODUTO + id, null, CODE_GET_REQUEST);
         request.execute();
     }
 
-    private void refreshProdutoList(JSONArray Produto) throws JSONException {
+    private void refreshProdutoList(JSONArray produtos) throws JSONException {
         produtoList.clear();
 
-        for (int i = 0; i <Produto.length(); i++) {
-            JSONObject obj = Produto.getJSONObject(i);
+        for (int i = 0; i <produtos.length(); i++) {
+            JSONObject obj = produtos.getJSONObject(i);
 
              produtoList.add(new Produto(
                     obj.getInt("id"),
@@ -221,8 +221,7 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
         ProdutoAdapter adapter = new ProdutoAdapter(produtoList);
         listView.setAdapter(adapter);
     }
-    private class PerformNetworkRequest extends
-            AsyncTask<Void, Void, String> {
+    private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {
         String url;
         HashMap<String, String> params;
         int requestCode;
@@ -247,7 +246,7 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
                 JSONObject object = new JSONObject(s);
                 if (!object.getBoolean("error")) {
                     Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
-                    refreshProdutoList(object.getJSONArray("produto"));
+                    refreshProdutoList(object.getJSONArray("produtos"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -293,13 +292,7 @@ public class AdicionarProdutosActivity extends AppCompatActivity {
 
             txtNome.setText(produto.getNome());
 
-            txtNome.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(getApplicationContext(),
-                            MostrarProdutosActivity.class));
-                }
-            });
+
 
             textViewUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override

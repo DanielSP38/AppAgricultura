@@ -25,9 +25,6 @@ public class Produto {
         this.rating = rating;
     }
 
-    public Produto(String nome, String fornecedor, String quantidade, int rating) {
-    }
-
     public int getId() {
         return id;
     }
